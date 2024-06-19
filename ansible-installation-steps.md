@@ -1,4 +1,6 @@
-1. Create GCP VM.
+__Install Control Node__
+
+1. Create GCP COntrol Node VM.
 ```
 To be eligible for Free tier machine use below combinations
 machine-type=e2-micro
@@ -31,3 +33,40 @@ apt-get install python3-pip
 ```
 ansible --version
 ```
+**Install Managed Node**
+1. Create GCP Managed Node VM.
+```
+To be eligible for Free tier machine use below combinations
+machine-type=e2-micro
+zone=us-central1-c 
+diskTypes=pd-standard
+```
+
+2. ssh to new VM ansible-control-node
+Create ansible user.And assign him admin rights
+```
+useradd -m -s /bin/bash ansadmin 
+passwd ansadmin
+
+echo "ansadmin ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+```
+
+3. Check password based authentication 
+```
+sudo vi /etc/ssh/sshd_config
+
+check for PasswordAuthentication . Its values should be no
+```
+
+**SSH to Control Node**
+1. Add APP address of managed node into hosts file
+```
+vi /etc/ansible/hosts
+add IP of managed node
+```
+2. copy ssh key to host node 
+```
+Be sure you have sudo su - ansadmin. Because we had generated keys for this user
+ssh-copy-id <ip of managed node>
+```
+3. ssh  to managed node
