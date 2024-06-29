@@ -1,0 +1,4 @@
+---
+ packages:
+   - {package: wget, versions: "1.24.5-1"}
+   - {package: tree, versions: "2.1.1-2"}

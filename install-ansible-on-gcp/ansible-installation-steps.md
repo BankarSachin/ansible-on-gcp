@@ -59,7 +59,7 @@ check for PasswordAuthentication . Its values should be no
 ```
 
 **SSH to Control Node**
-1. Add APP address of managed node into hosts file
+1. Add IP address of managed node into hosts file
 ```
 vi /etc/ansible/hosts
 add IP of managed node
@@ -68,5 +68,11 @@ add IP of managed node
 ```
 Be sure you have sudo su - ansadmin. Because we had generated keys for this user
 ssh-copy-id <ip of managed node>
+
+Restart ssh service
+systemctl restart sshd
 ```
-3. ssh  to managed node
+3. ssh  to managed node to check connectivity
+```
+ssh <IP Address>
+```

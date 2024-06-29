@@ -1,0 +1,4 @@
+- name: install {{package}} - {{version}}
+  ansible.builtin.apt:
+    name: {{package}}={{version}}
+    state: present
