@@ -2,9 +2,9 @@
 - include_vars: 
     file: "../vars/main.yml"
 
-- include: install_local_package.yml
+- include_tasks: install_local_package.yml
   vars:
-    package: {{ item.package }}
-    version: {{ item.versions }}
+    package: "{{ item.package }}"
+    version: "{{ item.versions }}"
   with_items:
-   - {{ packages }}
+   - "{{ packages }}"

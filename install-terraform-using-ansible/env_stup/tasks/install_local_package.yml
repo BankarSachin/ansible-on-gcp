@@ -1,4 +1,16 @@
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: yes
+  become: true
+  become_user: root
+  
+- name: Pakackage to be installed {{package}} - {{version}}
+  ansible.builtin.debug:
+    msg: "Installing {{package}} - {{version}}"
+    
 - name: install {{package}} - {{version}}
   ansible.builtin.apt:
-    name: {{package}}={{version}}
+    name: "{{package}}={{version}}"
     state: present
+  become: true
+  become_user: root

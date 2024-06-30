@@ -2,4 +2,5 @@
 - name: install terraform with ansible
   hosts: all
   roles:
-    - {role: env_stup,tags:['setup_env']}
+    - {role: env_stup, tags: ['setup_env']}
+    - {role: install_terraform, tags: ['install_terraform']}

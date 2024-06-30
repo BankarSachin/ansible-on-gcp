@@ -1,4 +1,5 @@
 ---
  packages:
-   - {package: wget, versions: "1.24.5-1"}
-   - {package: tree, versions: "2.1.1-2"}
+   - {package: wget, versions: "1.21.3-1+b2"}
+   - {package: tree, versions: "2.1.0-1"}
+   - {package: unzip, versions: "6.0-28"}
